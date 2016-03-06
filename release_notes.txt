@@ -1,0 +1,271 @@
+Modifications history from osDate 2.0
+-------------------------------------
+(Current version 2.0.6)
+
+
+Following modifications are made from time to time after the release of osDate 2.0.
+
+
+osDate v2.0.6
+-------------
+
+1.	init.php is modified to avoid any PEAR error which displays the Db connection string.
+
+2.	admin/transferpics.php is modified to utilize less memory and to give correct file name
+	for Thumbnail picture.
+	
+3.	nickpage.tpl and nickpage_navi.tpl are modified to rectify small issues with Links spacing.
+
+4.	signup.tpl is modified to move up the javascript checking for invalid characters in username
+	and password.
+	
+5.	savesignup.php is modified to accept spamcode in lower and upper characters. Also, spaces in
+	username is being checked now.
+	
+6.	/templates/romantic/admin/index.tpl is now included. In 2.0.5, it was named index.html by 
+	mistake.
+	
+7.	/admin/modifyprofile.php and admin/profile.php are included again if anyone missed the 2.0.5.a
+	patch set.
+	
+8.	A new mechanism for version control is included from this version. A new file osdate_init.php
+	is included in the base dir. This will include the version number and code to automatically 
+	set DOC_ROOT. The setting of DOC_ROOT was not working on some systems. This will be rectified
+	by this process. Also, you neednot modify config.php at all to identify osDate version. 
+	(included is osdate_init.php)
+	
+	
+osDate 2.0.5a
+-------------
+
+1) 	/admin/modifyprofile.php is modified to rectify the issue of view online being initiated
+	if a user is modified via admin panel.
+	
+2) 	/admin/profile.php is modified to display correct pagination.
+
+
+osDate 2.0.5
+------------
+
+1.	/templates/romantic/admin/index.html is modified to include editor.js file automaticaly.
+
+2.	Spanish language file is new taken from uploaded version by one user.
+
+3.	/admin/onlineusers.php is modified to display state, city and country name properly.
+
+4.	index.php is modified to list featured profile members randomly.
+
+5.	/admin/savebanner.php is modified to rectify the issue with multiple banners saving.
+
+6.	/admin/userpics.tpl file is modified to display the subheading properly.
+
+7.	/templates/default/admin/editprofilequestions.tpl is modified to correct the 
+	field duplication issue with text fields.
+	
+8.	/admin/profile.php is modified to display corret status if the user haven't confirmed
+	email address.
+	
+9.	Modified Dutch language file is included.
+
+10.	savesignup.php is modified to check for spaces in User Name.
+
+11.	savesignup.php, compose.php, feedback.php, modifympass.php, sendinvite.php, 
+are modified to make spam code case insensitive.
+
+12.	/admin/transferpics.php is modified to transfer pictures in batches. THe new format for 
+	calling this program is
+	
+	  admin/transferpics.php?action=xxxx&count=nn
+	  
+	  where xxxx = FS2DB for File System to DB transfers
+	               DB2FS for Db to File system transfers
+	               
+	        nn   = Number of pictures to be transferred at one time
+	        
+	  Please use a realistic count (e.g. max 50 pictures at tone time. IF this fail with memory
+	  or execution limits, reduce the count)
+	  
+13.	admin/sendletter.php is modified to increase time lag between sending emails. Now it will 
+	wait for 5 microsends (earlier it was 2)
+	
+14.	nickpage_navi.tpl is modified to rectify the issue with Separator not shown where options
+	are being displayed for insufficient privileges.
+	
+
+osDate 2.0.4
+------------
+
+
+1.	init.php is modified to load countries table in all places. The checking of some programs were
+	failing and in some places.
+	
+2.	modPlugin is modified to sort of the issue with db error.
+
+3.	init.php and /libs/Pear/DB/mysqlc.php is modified to avoid Warning messages.
+
+4.	The password change program (modifympass.php) is rectified to update forum password also when
+	password is changed.
+	
+5.	/admin/modifyprofile.php is modified to rectify the issue with password change happening
+	when admin  makes any changes to user record.
+	
+6.	Issue with membership being reset when any error occur in admin profile edit, is rectified.
+
+7.	Issue with Comment reply not getting deleted rectified. Please REPLACE 
+	nickpage_newrating.tpl file from this set to your skin directory if you have this file
+	in the skin directory. Otherwise, leave it in /templates/default directory.
+
+8.	index.tpl and admin/index.tpl files in silver-red and romantic skins are modified to 
+	incorporate the issue with javascript error happening.
+	
+9.	/admin/panel.php is modified to display corect views and winks counts.
+
+10.	/admin/advsearch.php and advsarch.php are modified to incorporate multi-language
+	facility for section questions and answers.
+	
+11.	/admin/showprofile.php and showprofile.php are modified to incorporate multi-language
+	facility for section questions and answers.
+	
+12.	The statename 'AA' not getting replaced in mymatches.php is rectified.
+
+13.	/admin/convert_profile_questions.php is added as there is still a confusion about
+	with correct file. Some users are getting error while running.
+
+14.	Smarty plugin checkuser is modified to return correct url for video and pics access.
+
+15.	tellafriend.tpl is modified to adjust display of spam code in some templates.
+	
+osDate 2.0.3
+------------
+
+1)	compose.php is modified to send correct profile picture when a message is sent. Also,
+	to replace email template values in Subject also. City is now rectified to include
+	city  name.
+
+2)	sendwinks.php is modified to send correct profile picture when a wink is sent.
+
+3)	savesignup.php is modified to effect email stripping in username, first name, 
+	lastname and password.
+
+4)	modifyuser.php is rectified to remove emails from username, firstname, lastname.
+
+5)	userpicgallery.php is modified to rectify the issue with users in hot list requiring
+	password to view private gallery, even though it is set to be other way.
+	
+6)	All language files are modified.
+
+7)	A working set of advanced hot or not is included.
+
+8)	French States is included in /states folder.
+
+9)	im.tpl is modified to use language file for captions.
+
+10)	searchprofile.tpl is modified to use captions from language file.
+
+11)	index.tpl is modified to load shoutbox.js only if shoutbox is enabled.
+
+12)	adultQuest plugin is modified to use updated template files.
+
+13)	The plugin myFriends is modified slightly to display properly and to change text in message
+
+14)	To include norwaegian as a language, please do following in /myconfigs/config.php
+
+	Add 	'norwegian'	=> 'Norway',   to $language_options array 
+	Add		'norwegian'	=> 'lang_norwegian/lang_main.php',  to $language_files array
+	Add	    'norwegian'	=> 'nw',  to $language_conversion array.
+	
+	
+15)	/libs/modOsDate/modPlugin.php is modified to include lookgender in auto generated profiles.
+
+16)	init.php is modified to adjust for countries_list array population.
+
+17)	newmemberlist.php and /includes/internal/Functions.php are modified to display the cityname
+	in new members listing and other places.
+	
+18)	newFeaturedRss and atomFeed plugins are modified to display correct city name.
+
+19)	When a user receives a wink, the email will now show the Receiver's Username also.
+	This is done by modifying the $lang['wink_receivd']['text'] and $lang['wink_received']['html']
+	and $lang['letter_winkreceived_sub']. #ReceiverName# is added in these and sendwinks.php is 
+	modified to replace this variable. Modify all other language files to reflect this change and
+	reload.
+	
+
+osDate 2.0.2
+------------
+
+1.	Issue with savesignup directly allowing user creation without spamcode when data is focribly
+	added using a dummy form. This is rectified.
+	
+2.	Issue with Lucky Spin displaying users who are suspended. Now this is modified to show those
+	users who is active only.
+	
+3.	Admin. stats page had the words Men, Women, Couple, etc. fixed. These are modified now
+	to take from language file. The array $lang['stats_gender_values'] define this.
+	All other languages should be modified to incorporate this.
+	
+4.	The word 'To' was fixed in sendletter option in Admin interface. This is now rectified.
+
+5.	The global settings edit screen is adjusted for width difference.
+
+6.	modifyuser.php and saveuser.php are modified to remvoe email addresses from certain fields.
+
+7.	Convert Profile Questions is modified to display ending message.
+
+8.	Picture transfer program is modified to display ending message.
+
+9.	showprofile.php is modified to rectify the question display order issue.
+
+10.	compose.php is modified to solve the search pulldown list issue.
+
+11.	luckySpin and autogenprofile plugins are included again. Please use these as it is working.
+
+12.	completereg.php is modified to solve the forum_completereg() issue.
+
+13.	shoutbox.js is modified to take the configuration setting for refresh interval in Minutes. It
+	was taking it as seconds.
+	
+14.	In edit questions, for profile questions, for select list, even though the questions was made
+	mandatory, it was behaving otherwise because of "I will tell later" option. This is now rectified.
+	
+15.	In language file, "?" is added as a valid charactr in the array $lang['full_chars']. I have added
+	this in all languages. If it is missing, please it and load that language again. This is to allow
+	? in profile questions.
+	
+16.	In English language file, new definition is added $lang['snapload_msg']. This is the text to display
+	in snaps loading program to load only Main Picture and load thumbnail only if specifically needed.
+	Please add these in other languages also.
+	
+17.	usersnap.tpl and /admin/userpics.tpl are modified to display informative message mentioned in 16.
+
+18.	showsimpsh.tpl is modified to incorporate the sort by and sort order in next/previous links.
+
+
+osDate 2.0.1
+------------
+
+a)	Stories being displayed even though there are no stories. This is rectified.
+
+b)	Hotornot Plugin is rectified.
+
+c)	Autogenprofile is modified for wrong pictures loading.
+
+d)	Italian language is included.
+
+e)	Password change was giving error with forum password changing. This is rectified.
+
+f)	Some language files are modified, including English. This is to rectify some spelling
+	mistakes.
+	
+g)	For those users who had problems in getting the countries table populated in upgrade from
+	1.1.10 or installation, please edit /sql/countries.sql from this set and change the value 
+	[prefix] to the table prefix you used in installing osDate v2 and run the sql using 
+	phpmyadmin.
+	
+h)	Issue with signup when a forum is installed and in use, is rectified. Also, the issue with
+	the blanks in username is rectified.
+
+
+After copying all files, please reload ENGLISH language first and then languages which
+you have loaded now.
+
